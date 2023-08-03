@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import StepOnePage from './components/StepOnePage';
+import StepTwoPage from './components/StepTwoPage';
+import StepThreePage from './components/StepThreePage';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router basename={process.env.PUBLIC_URL}>
+      <Routes>
+        <Route path='/' element={<StepOnePage />} />
+        <Route path='/StepTwo' element={<StepTwoPage />} />
+        <Route path='/StepThree' element={<StepThreePage />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
